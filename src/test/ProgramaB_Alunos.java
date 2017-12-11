@@ -11,11 +11,13 @@ import model.Aluno;
 import predicates.NamePredicate;
 
 public class ProgramaB_Alunos {
+	
+	//NAO FIZ
 
-	private static final String name = "";
-	private static final String email = "";
-	private static final int idade = 0;
-	private static final String cidade = "";
+	private static final String name = "Polly Hansen";
+	private static final String email = "parksgilliam@fishland.com";
+	private static final int idade = 32;
+	private static final String cidade = "Umapine";
 	
 	public static void main(String[] args) {
 		FileReader arquivo = null;
@@ -25,17 +27,21 @@ public class ProgramaB_Alunos {
 			e.printStackTrace();
 			System.exit(1);
 		}
+
 		ListaEncadeada<Aluno> lista = ListaEncadeada.loadFromFile(arquivo);
 		
-		Aluno busca = new Aluno(name, email, idade, cidade);
-
-		System.out.println(lista.search(busca, new SearchByName()));
+		Aluno alunoParaBusca = new Aluno();
+		
+		System.out.println(lista.search(alunoParaBusca, new SearchByName()));
+		
 		lista.removeIf(new NamePredicate(name));
-		if (lista.search(busca, new SearchByName()) != null)
+		
+		if (lista.search(alunoParaBusca, new SearchByName()) != null)
 			System.out.println(name + " nao deveria estar na lista.");
 
-		System.out.println(lista.search(busca, new SearchByEmail()));
-		System.out.println(lista.search(busca, new SearchByAgeAndCity()));
+		System.out.println(lista.search(alunoParaBusca, new SearchByEmail()));
+		
+		System.out.println(lista.search(alunoParaBusca, new SearchByAgeAndCity()));
 	}
 
 }

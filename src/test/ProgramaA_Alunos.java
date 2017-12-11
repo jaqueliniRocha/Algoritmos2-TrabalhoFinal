@@ -3,11 +3,14 @@ package test;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 
+import comparators.OrdenaPorEmail;
 import datastructures.ListaEncadeada;
 import model.Aluno;
 
 public class ProgramaA_Alunos {
 
+	//NAO FIZ!!!!!
+	
 	public static void main(String[] args) {
 		FileReader arquivo = null;
 		try {
@@ -16,12 +19,13 @@ public class ProgramaA_Alunos {
 			e.printStackTrace();
 			System.exit(1);
 		}
+		
 		ListaEncadeada<Aluno> lista = ListaEncadeada.loadFromFile(arquivo, new OrdenaPorEmail());
 
-		Iterador<Aluno> iterador = lista.iterador();
-		while (iterador.hasNext()) {
-			System.out.println(iterador.next().getEmail());
-		}
+//		Iterador<Aluno> iterador = lista.iterador();
+//		while (iterador.hasNext()) {
+//			System.out.println(iterador.next().getEmail());
+//		}
 	}
 
 }

@@ -7,9 +7,8 @@ import model.Aluno;
 public class SearchByEmail implements Comparator<Aluno> {
 
 	@Override
-	public int compare(Aluno o1, Aluno o2) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compare(Aluno aluno1, Aluno aluno2) {
+		return aluno1.getEmail().compareTo(aluno2.getEmail());
 	}
 
 }
